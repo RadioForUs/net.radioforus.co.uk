@@ -1,1 +1,247 @@
-<p>Net.RadioForUs.Co.Uk</p>
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetForUs - RadioForUs Youth Net</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        :root {
+            --bg-color: #fdfdfd;
+            --text-color: #1a1a1a;
+            --card-bg: #ffffff;
+            --border-color: rgba(43, 93, 114, 0.08);
+            --accent-blue: #39e1ff;
+            --accent-orange: #ff5400;
+            --net-primary: #2e76bd;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #f1f5f9;
+            --card-bg: #1e293b;
+            --border-color: rgba(255, 255, 255, 0.1);
+            --accent-blue: #25dad0;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: var(--bg-color);
+            color: var(--text-color); 
+            font-family: 'DM Sans', sans-serif; 
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .header {
+            padding: 30px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo-text { font-family: 'Space Grotesk', sans-serif; font-size: 1.8rem; letter-spacing: -1px; color: var(--accent-orange); text-decoration: none; }
+        .logo-text span { color: var(--accent-blue); }
+
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 8px 16px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 5%; }
+
+        .hero-section {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .hero-section h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 20px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #64748b;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(57, 225, 255, 0.1);
+            color: var(--net-primary);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .info-card {
+            background: var(--card-bg);
+            border-radius: 30px;
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+
+        .net-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .feature-box {
+            padding: 25px;
+            border-radius: 20px;
+            background: rgba(43, 93, 114, 0.03);
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-box h3 { margin-bottom: 10px; color: var(--net-primary); }
+
+        .cta-box {
+            background: linear-gradient(135deg, #2e76bd, #1a4f8a);
+            color: white;
+            padding: 50px;
+            border-radius: 30px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .cta-box h2 { font-size: 2rem; margin-bottom: 15px; }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s;
+            margin: 10px;
+        }
+
+        .btn-primary { background: var(--accent-orange); color: white; }
+        .btn-secondary { background: white; color: #2e76bd; }
+        .btn:hover { transform: translateY(-3px); }
+
+        .discord-suggestion {
+            margin-top: 40px;
+            padding: 25px;
+            border-radius: 20px;
+            border: 2px dashed var(--border-color);
+            text-align: center;
+        }
+
+        .discord-suggestion a { color: #5865F2; font-weight: 700; text-decoration: none; }
+
+        footer {
+            padding: 60px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section { padding: 40px 0; }
+            .cta-box { padding: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <a href="https://radioforus.co.uk" class="logo-text">NET<span>FORUS</span></a>
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">Toggle Dark Mode</button>
+</header>
+
+<main class="container">
+    <section class="hero-section">
+        <span class="badge">Powered by FreeSTAR Network</span>
+        <h1>The Youth Voice on <span style="color: var(--net-primary);">The Airwaves.</span></h1>
+        <p>A dedicated space for young amateur radio operators to connect, chat, and build confidence on the air.</p>
+        
+        <div class="net-grid">
+            <div class="feature-box">
+                <h3>The Mission</h3>
+                <p>Started by M9JAK & 2E0KOF to break the ice for young operators and encourage consistent activity on Digital Voice networks.</p>
+            </div>
+            <div class="feature-box">
+                <h3>The Success</h3>
+                <p>Our trial net saw 20 check-ins from across the network! We are now working to make this a regular fixture in your radio calendar.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="info-card">
+        <h2>How to Join</h2>
+        <p>The NetForUs Youth Net is hosted on the <b>FreeSTAR Network</b>. You can join via AllStar, EchoLink, DMR, or P25 hotspots.</p>
+        <br>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+            <a href="https://freestar.network" class="btn btn-primary" target="_blank">View FreeSTAR Nodes</a>
+            <a href="https://jackbrown.xyz/netforus1.html" class="btn btn-secondary" style="border: 1px solid #ddd;">Last Net Stats</a>
+        </div>
+    </div>
+
+    <section class="cta-box">
+        <h2>Ready to get involved?</h2>
+        <p>Whether you're a foundation student or a seasoned young pro, the PTT is yours.</p>
+        <br>
+        <a href="https://discord.gg/ByVJ7UZ4WF" class="btn btn-secondary">Join the Discord Community</a>
+    </section>
+
+    <div class="discord-suggestion">
+        <p>Got any Net Ideas? Drop us a message in the <b>#net-ideas</b> channel on our <a href="https://discord.gg/ByVJ7UZ4WF">Discord!</a></p>
+    </div>
+</main>
+
+<footer>
+    &copy; 2026 <b>NetForUs</b> / RadioForUs. <br>
+    Built and Hosted by <a href="https://jackbrown.xyz/" style="color: inherit; font-weight: bold;">Jack Brown (M9JAK)</a>
+</footer>
+
+<script>
+function toggleTheme() {
+    const html = document.documentElement;
+    const btn = document.getElementById('themeBtn');
+    if (html.getAttribute('data-theme') === 'dark') {
+        html.setAttribute('data-theme', 'light');
+        btn.innerText = 'Toggle Dark Mode';
+    } else {
+        html.setAttribute('data-theme', 'dark');
+        btn.innerText = 'Toggle Light Mode';
+    }
+}
+
+document.addEventListener('contextmenu', event => event.preventDefault());
+document.onkeydown = function(e) {
+    if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) || (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
+        return false;
+    }
+}
+</script>
+
+</body>
+</html>
